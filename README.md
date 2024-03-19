@@ -18,11 +18,14 @@
 - VS Code
 
 
-# Updated EF Core tool to the latest version - Version 8.03
+# Updated EF Core tool to the latest version
+
 dotnet tool update --global dotnet-ef
 
 # Development
-# Create the Initial Migration for SQLite DB - should work for any DB
+
+Create the Initial Migration for SQLite DB - should work for any DB
+
 set ASPNETCORE_ENVIRONMENT=Development
 
 Make sure that the connection String points to the SQLite ( locally ) in the "appsettings.Development" 
@@ -31,16 +34,23 @@ Make sure that the connection String points to the SQLite ( locally ) in the "ap
 
 dotnet ef migrations add InitialCreate --context SqliteDataContext --output-dir Migrations/SqliteMigrations 
 
+# Create the local SQLite
+
+dotnet run
 
 # Production - SQLite as well
-# Create a self contained build for production at the remote server / traditionel web hotel
+
+Create a self contained build for production at the remote server / traditionel web hotel
+
 dotnet publish webapi.csproj --configuration Release --runtime win-x86 --self-contained
 
-# Upload the build to remote server ( without SQLite DB )
+Upload the build to remote server ( without SQLite DB )
 
-# At my remote servers the web.config needs to be without the folowing 
+At my remote servers the web.config needs to be without the folowing:
+
 hostingModel="inprocess"
 
-# Create the remote SQLite DB at the remote server
-https://remote-host.com/users
+# Create the remote SQLite DB
+
+remote-host.com/users
 
