@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
     var services = builder.Services;
     var env = builder.Environment;
  
-    // use sql server db in production and sqlite db in development
+    // You can use sql server db in production and sqlite db in development
     // Note: For now SQLite in both Dev + Prod
     // if (env.IsProduction())
     //    services.AddDbContext<DataContext>();
